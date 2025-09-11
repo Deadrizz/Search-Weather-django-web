@@ -1,0 +1,16 @@
+{% extends 'searchweather/base.html' %}
+{% load static %}
+
+{%block content%}
+    <h1>Search History</h1>
+    <table>
+      <thead>
+        <tr><th>City</th><th>Date</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+      {% for w in weather %}
+        <tr><td>{{w.city}}</td><td>{{w.search_date}}</td><td>{{w.temperature}}, {{w.description}}</td></tr>
+      {%endfor%}
+      </tbody>
+    </table>
+{%endblock content%}
