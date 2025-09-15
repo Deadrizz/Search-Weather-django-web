@@ -22,5 +22,7 @@
         <h2>Weather in {{ weather.city }}:</h2>
         <p>Temperature: {{ weather.temperature }}°C</p>
         <p>Description: {{ weather.description }}</p>
+    {% else %}
+        <p style="color: red;">City not found.Try again</p>
     {% endif %}
 {%endblock content%}

@@ -1,12 +1,13 @@
 from django.shortcuts import render,redirect
 from searchweather.models import SearchHistory
+import os
 # from django.contrib.auth.decorators import login_required
 import requests
 # @login_required(login_url='users/login')
 def index(request):
     if request.method == "POST":
         city_user = request.POST.get('city','').title().strip()
-        API_KEY = '' # Need your api key
+        API_KEY = os.getenv('API_KEY') # Need your api key
         res = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city_user}&appid={API_KEY}&units=metric")
         if res.status_code == 200:
             data = res.json()
